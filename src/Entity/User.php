@@ -50,6 +50,10 @@ class User
         $this->groups = new ArrayCollection();
     }
 
+    public function setGroup(Group $group){
+        $this->groups->add($group);
+    }
+    
     public function getId(): ?int
     {
         return $this->id;

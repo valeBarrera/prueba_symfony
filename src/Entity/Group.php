@@ -39,6 +39,10 @@ class Group
         $this->users = new ArrayCollection();
     }
 
+    public function setUser(User $user){
+        $this->users->add($user);
+    }
+
     public function getId(): ?int
     {
         return $this->id;

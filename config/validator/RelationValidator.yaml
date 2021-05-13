@@ -1,0 +1,18 @@
+App\Form\Model\UserDto:
+    properties:
+        user_id:
+            - NotBlank: ~
+            - Length:
+                min: 1
+                max: 3
+                minMessage: 'The id must be at least {{ limit }} characters long'
+                maxMessage: 'The id cannot be longer than {{ limit }} characters'
+                allowEmptyString: false
+        group_id:
+            - NotBlank: ~
+            - Length:
+                min: 1
+                max: 3
+                minMessage: 'The id must be at least {{ limit }} characters long'
+                maxMessage: 'The id cannot be longer than {{ limit }} characters'
+                allowEmptyString: false

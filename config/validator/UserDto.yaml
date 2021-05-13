@@ -1,0 +1,35 @@
+App\Form\Model\UserDto:
+    
+    properties:
+        username:
+            - NotBlank: ~
+            - Length:
+                min: 3
+                max: 15
+                minMessage: 'The username must be at least {{ limit }} characters long'
+                maxMessage: 'The username cannot be longer than {{ limit }} characters'
+                allowEmptyString: false
+        name:
+            - NotBlank: ~
+            - Length:
+                min: 3
+                max: 50
+                minMessage: 'The name must be at least {{ limit }} characters long'
+                maxMessage: 'The name cannot be longer than {{ limit }} characters'
+                allowEmptyString: false
+        lastname:
+            - NotBlank: ~
+            - Length:
+                min: 3
+                max: 50
+                minMessage: 'The lastname must be at least {{ limit }} characters long'
+                maxMessage: 'The lastname cannot be longer than {{ limit }} characters'
+                allowEmptyString: false
+        email:
+            - NotBlank: ~
+            - Length:
+                min: 3
+                max: 50
+                minMessage: 'The email must be at least {{ limit }} characters long'
+                maxMessage: 'The email cannot be longer than {{ limit }} characters'
+                allowEmptyString: false

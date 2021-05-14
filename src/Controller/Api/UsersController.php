@@ -12,6 +12,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
+use FOS\RestBundle\Serializer\Serializer;
+use Monolog\Logger;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class UsersController extends AbstractFOSRestController
 {
@@ -35,7 +40,8 @@ class UsersController extends AbstractFOSRestController
     public function store(
         Request $request, 
         LoggerInterface $logger, 
-        EntityManagerInterface $em
+        EntityManagerInterface $em,
+        SerializerInterface $serializer
     )
     {
        $userDto = new UserDto();
@@ -49,9 +55,13 @@ class UsersController extends AbstractFOSRestController
            $user->setEmail($userDto->email);
            $em->persist($user);
            $em->flush(); 
-           return $user;
            $logger->info('User creation request successfully');
+           $data = $serializer->serialize($user, 'json');
+           $data = json_decode($data);
+           return new JsonResponse(array("message" => "Successful user creation", "code"=> 200, "data" => $data), Response::HTTP_OK);
+           
        }
+       $logger->info('User creation request failed');
        return $form;
     } 
 
@@ -63,13 +73,30 @@ class UsersController extends AbstractFOSRestController
         int $id,
         EntityManagerInterface $em,
         UserRepository $userRepository,
-        Request $request
+        Request $request,
+        Logger $logger,
+        SerializerInterface $serializer
     )
     {
-       $user = $userRepository->find($id);
-       if(!$user){
-           throw $this->createNotFoundException('User not found');
-       }
-       $userDto = new UserDto();
+        $data = json_decode($request->getContent(), true);
+        $userDto = new UserDto();
+        $form = $this->createForm(UserFormType::class, $userDto);
+        $form->submit($data);
+        if($form->isSubmitted() && $form->isValid()){
+            $user = new User();
+            $user->setUserName($userDto->username);
+            $user->setName($userDto->name);
+            $user->setLastName($userDto->lastname);
+            $user->setEmail($userDto->email);
+            $em->persist($user);
+            $em->flush(); 
+            $data = $serializer->serialize($user, 'json');
+            $data = json_decode($data);
+            return new JsonResponse(array("message" => "Successful user update", "code"=> 200, "data" => $data), Response::HTTP_OK);
+            return $user;
+            
+        }
+        $logger->info('User update request failed');
+        return $form;
     } 
 }

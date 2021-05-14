@@ -1,8 +1,0 @@
-App\Entity\Group:
-    attributes:
-        id:
-            groups: ['group']
-        name:
-            groups: ['group']
-        description:
-            groups: ['group']

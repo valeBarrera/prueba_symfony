@@ -1,4 +1,4 @@
-App\Form\Model\UserDto:
+App\Form\Model\RelationDto:
     properties:
         user_id:
             - NotBlank: ~

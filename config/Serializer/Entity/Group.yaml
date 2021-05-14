@@ -1,0 +1,10 @@
+App\Entity\Group:
+    attributes:
+        id:
+            groups: ['group','user']
+        name:
+            groups: ['group','user']
+        description:
+            groups: ['group','user']
+        listuser:
+            groups: ['group','relation_user']

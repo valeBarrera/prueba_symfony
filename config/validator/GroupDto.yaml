@@ -1,4 +1,4 @@
-App\Form\Model\UserDto:
+App\Form\Model\GroupDto:
     properties:
         name:
             - NotBlank: ~

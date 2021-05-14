@@ -1,0 +1,15 @@
+App\Entity\User:
+    attributes:
+        id:
+            groups: ['group','user']
+        username:
+            groups: ['group','user']
+        name:
+            groups: ['group','user']
+        lastname:
+            groups: ['group','user']
+        email:
+            groups: ['group','user']
+        listgroups:
+            groups: ['user','relation_group']
+        

@@ -3,7 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -40,20 +42,17 @@ class User
     private $email;
 
     /**
-     * Many Users have Many Groups.
-     * @ORM\ManyToMany(targetEntity="Group", inversedBy="users")
-     * @ORM\JoinTable(name="users_groups")
+     * @var Collection|Group[]
+     * @MaxDepth(1)
+     * @ORM\ManyToMany(targetEntity=Group::class, inversedBy="listuser")
      */
-    private $groups;
+    private $listgroups;
 
-    public function __construct() {
-        $this->groups = new ArrayCollection();
+    public function __construct()
+    {
+        $this->listgroups = new ArrayCollection();
     }
 
-    public function setGroup(Group $group){
-        $this->groups->add($group);
-    }
-    
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +102,30 @@ class User
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Group[]
+     */
+    public function getListgroups(): Collection
+    {
+        return $this->listgroups;
+    }
+
+    public function addListgroup(Group $listgroup): self
+    {
+        if (!$this->listgroups->contains($listgroup)) {
+            $this->listgroups[] = $listgroup;
+        }
+
+        return $this;
+    }
+
+    public function removeListgroup(Group $listgroup): self
+    {
+        $this->listgroups->removeElement($listgroup);
 
         return $this;
     }

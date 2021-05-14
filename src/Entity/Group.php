@@ -3,7 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\GroupRepository;
+use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,13 +32,16 @@ class Group
     private $description;
 
     /**
-     * Many Groups have Many Users.
-     * @ORM\ManyToMany(targetEntity="User", mappedBy="groups")
+     * @var Collection|User[]
+     * @MaxDepth(1)
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="listgroups")
      */
-    private $users;
+    private $listuser;
 
-    public function __construct() {
-        $this->users = new ArrayCollection();
+
+    public function __construct()
+    {
+        $this->listuser = new ArrayCollection();
     }
 
     public function setUser(User $user){
@@ -68,6 +73,33 @@ class Group
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getListuser(): Collection
+    {
+        return $this->listuser;
+    }
+
+    public function addListuser(User $listuser): self
+    {
+        if (!$this->listuser->contains($listuser)) {
+            $this->listuser[] = $listuser;
+            $listuser->addListgroup($this);
+        }
+
+        return $this;
+    }
+
+    public function removeListuser(User $listuser): self
+    {
+        if ($this->listuser->removeElement($listuser)) {
+            $listuser->removeListgroup($this);
+        }
 
         return $this;
     }

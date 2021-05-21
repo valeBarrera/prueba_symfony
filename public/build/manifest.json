@@ -1,0 +1,15 @@
+{
+  "build/app.css": "/build/app.css",
+  "build/app.js": "/build/app.js",
+  "build/runtime.js": "/build/runtime.js",
+  "build/vendors~app.js": "/build/vendors~app.js",
+  "build/docs/prueba.pdf": "/build/docs/prueba.pdf",
+  "build/images/_logo.png": "/build/images/_logo.png",
+  "build/images/cc.mp4": "/build/images/cc.mp4",
+  "build/images/cc.webm": "/build/images/cc.webm",
+  "build/images/clouds.png": "/build/images/clouds.png",
+  "build/images/favicon.png": "/build/images/favicon.png",
+  "build/images/image.png": "/build/images/image.png",
+  "build/images/logo.png": "/build/images/logo.png",
+  "build/images/user.png": "/build/images/user.png"
+}

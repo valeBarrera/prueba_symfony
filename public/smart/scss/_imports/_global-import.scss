@@ -1,0 +1,15 @@
+/* #BOOTSTRAP AND MIXINS - Base Unmodified Bootstrap file with theme mixins
+========================================================================== */
+// @import './node_modules/bootstrap/scss/functions';
+// @import './node_modules/bootstrap/scss/variables'; 
+@import '../../../../node_modules/bootstrap/scss/_functions.scss';
+@import '../../../../node_modules/bootstrap/scss/_variables.scss';
+@import '../../../../node_modules/bootstrap/scss/mixins';
+@import '../_mixins/mixins.scss';
+
+/* #BASE - Base Variable file along with font library, and colors.
+========================================================================== */
+@import '..//_modules/variables.scss';
+@import '..//_modules/_fonts.scss';
+@import '..//_modules/_placeholders.scss';
+@import '..//_modules/_custom.scss';

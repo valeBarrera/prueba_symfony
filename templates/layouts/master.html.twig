@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}">
+
+        {% block stylesheets %}
+            {# Bootstrap #}
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+            {# Font Awesome #}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
+            {# Datatables #}
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/fh-3.1.4/r-2.2.2/datatables.min.css"/>
+            {# This block loads compiled CSS of Webpack #}
+            <link rel="stylesheet" href="/build/app.css">
+            {# SmartAdmin #}
+            <link rel="stylesheet" href="{{ asset('smart/css/core.css') }}">
+            {# Waves #}
+            <link rel="stylesheet" href="{{ asset('bundles/waves/css/waves.min.css') }}">
+        {% endblock %}
+        {% block stylesheets_extra %}{% endblock %}
+
+        {# Tab content #}
+        <title>{% block metatitle %}Tab content{% endblock %} - Symfony 4</title>
+        
+        {# JS #}
+        {% block javascripts %}
+        
+            {# jQuery #}
+            <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+            {# Datatables #}
+            <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/fh-3.1.4/r-2.2.2/datatables.min.js"></script>            
+            <script src="{{ asset('smart/js/datatables.styles.app.js') }}"></script>
+            {# <script src="{{ asset('smart/js/datatables.styles.buttons.js') }}"></script> #}
+            {#  Jqueri UI #}
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+            {#  Bootstrap #}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+            
+            {# This block loads compiled JS of Webpack #}
+           
+            {# SmartAdmin #}
+            <script src="{{ asset('smart/js/jquery.slimscroll.min.js') }}"></script>
+            <script src="{{ asset('smart/js/jquery-throttle-debounce.js') }}"></script>
+            <script src="{{ asset('smart/js/smartpanels.js') }}"></script>
+
+            <script src="{{ asset('smart/js/_get/app.get.colors.js') }}"></script>
+            <script src="{{ asset('smart/js/_modules/app.init.js') }}"></script>
+            <script src="{{ asset('smart/js/_modules/app.domReady.js') }}"></script>
+            <script src="{{ asset('smart/js/_modules/app.navigation.js') }}"></script>
+            <script src="{{ asset('smart/js/_modules/app.orientationchange.js') }}"></script>
+            <script src="{{ asset('smart/js/_modules/app.window.load.js') }}"></script>
+
+            {# Waves #}
+            <script src="{{ asset('bundles/waves/js/waves.min.js') }}"></script>
+
+            {# SweetAlert #}
+            <script src="{{ asset('bundles/sweetalert2/sweetalert2.all.min.js') }}"></script>
+        {% endblock %}
+
+    </head>
+    <body class="mod-bg-1 desktop chrome webkit pace-done blur nav-function-fixed">
+
+        {# Content #}
+        <div class="page-wrapper">
+            <div class="page-inner">
+                {# Nav Menu #}
+                {% include "layouts/navbar.html.twig" %}
+
+                {# Content #}
+                <div class="page-content-wrapper">
+
+                    {# Header #}
+                    {% include "layouts/header.html.twig" %}
+
+                    {# Main #}
+                    <main id="js-page-content" role="main" class="page-content">
+
+                        {# Flash Messages #}
+                        {% for message in app.flashes('success') %}
+                            <div class="alert alert-success">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                        {% for message in app.flashes('error') %}
+                            <div class="alert alert-danger">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+
+                        {% block main %}{% endblock %}
+
+                    </main>
+                    
+                    <div class="page-content-overlay" data-action="toggle" data-class="mobile-nav-on"></div>
+
+                    {# Footer #}
+                    {% include "layouts/footer.html.twig" %}
+                </div>
+
+            </div>
+        </div>
+
+        {# Extra block for specific needed JS on a view #}
+        {% block javascripts_extra %}
+            <script src="{{ asset('smart/js/_config/app.config.js') }}"></script>
+            <script src="{{ asset('smart/js/_modules/app.menu.slider.js') }}"></script>
+            <script src="{{ asset('smart/js/_modules/app.resize.trigger.js') }}"></script>
+            <script src="{{ asset('smart/js/_modules/app.scroll.trigger.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,152 @@
+/* #GLOBAL IMPORTS
+========================================================================== */
+@import '_imports/_global-import.scss';
+
+/* #FRAMEWORK - Structure and layout files. (**DO NOT** change order)
+                DOC: you can disable unused _modules
+========================================================================== */
+/* contains root variables to be used with css (see docs) */
+@import '_modules/_root.scss';
+/* resets DOM elements to its natural state */
+@import '_modules/_reset.scss';
+/* html and body base styles */
+@import '_modules/_body.scss';
+/* app header */
+@import '_modules/_page-header.scss';
+/* app logo */
+@import '_modules/_page-logo.scss';
+/* app search */
+@import '_modules/_page-search.scss';
+/* icon menu with user options */
+@import '_modules/_dropdown-icon-menu.scss';
+/* dropdown notification in the app header */
+@import '_modules/_dropdown-notification.scss';
+/* icon menu with stacked icons located in the app header */
+@import '_modules/_dropdown-app-list.scss';
+/* app header stays fixed */
+@import '_modules/_header-function-fixed.scss';
+/* app far left panel */
+@import '_modules/_left-panel.scss';
+/* app navigation */
+@import '_modules/_nav.scss';
+/* app navigation filter */
+@import '_modules/_nav-listfilter.scss';
+/* app info card inside navigation */
+@import '_modules/_nav-info-card.scss';
+/* app navigation made horizontal */
+@import '_modules/_nav-function-top.scss';
+/* app navgation stays hidden */
+@import '_modules/_nav-function-hidden.scss';
+/* app navigation stays fixed */
+@import '_modules/_nav-function-fixed.scss';
+/* app navigation stays minified */
+@import '_modules/_nav-function-minify.scss';
+/* app navigation footer */
+@import '_modules/_nav-footer.scss';
+/* app wrapper */
+@import '_modules/_page-wrapper.scss';
+/* app content heading */
+@import '_modules/_page-heading.scss';
+/* app content */
+@import '_modules/_page-content.scss';
+/* app footer */
+@import '_modules/_page-footer.scss';
+/* app error page */
+@import '_modules/_page-error.scss';
+/* various app components (see docs for the full list) */
+@import '_modules/_page-components-accordion.scss';
+@import '_modules/_page-components-alerts.scss';
+@import '_modules/_page-components-badge.scss';
+@import '_modules/_page-components-breadcrumb.scss';
+@import '_modules/_page-components-buttons.scss';
+@import '_modules/_page-components-cards.scss';
+@import '_modules/_page-components-carousel.scss';
+@import '_modules/_page-components-dropdowns.scss';
+@import '_modules/_page-components-icon-stack.scss';
+@import '_modules/_page-components-listfilter.scss';
+@import '_modules/_page-components-loader.scss';
+@import '_modules/_page-components-messanger.scss';
+@import '_modules/_page-components-modal.scss';
+@import '_modules/_page-components-pagination.scss';
+@import '_modules/_page-components-panels.scss';
+@import '_modules/_page-components-popovers.scss';
+@import '_modules/_page-components-progressbar.scss';
+@import '_modules/_page-components-shortcut.scss';
+@import '_modules/_page-components-side-panels.scss';
+@import '_modules/_page-components-tables.scss';
+@import '_modules/_page-components-tabs.scss';
+@import '_modules/_page-components-tooltips.scss';
+
+/* #MISC - misc styles, helpers, effects and hacks
+========================================================================== */ 
+@import '_modules/_helpers.scss';
+@import '_modules/_misc.scss';
+@import '_modules/_effects.scss';
+@import '_modules/_hack.scss';
+@import '_modules/_hack-ie.scss';
+
+/* #MOBILE - mobile media related styles
+========================================================================== */ 
+/* contains most of the responsive styles for the app */
+@import '_modules/_responsive.scss';
+/* changes content colors based on ambience light source of the user (experimental) */
+@import '_modules/_light-levels.scss';
+
+/* #FORMS (customized bootstrap form elems)
+========================================================================== */ 
+@import '_modules/_forms.scss';
+
+/* #COMPONENTS (can be removed but may or may not impact other components)
+========================================================================== */ 
+/*@import '_modules/_form-switches.scss';*/
+@import '_modules/_translate-3d.scss';
+
+/* #DEMO ELEMS - elements mostly used for demo (can be removed)
+========================================================================== */ 
+@import '_modules/_settings-demo-incompatiblity-list.scss';
+@import '_modules/_settings-demo-theme-colors.scss';
+@import '_modules/_demo-only.scss';
+
+/* #_extensions - Components imported in alphabetical order (remove extensions from directory if not needed)
+========================================================================== */ 
+@import '_extensions/_extension-pace.scss';
+@import '_extensions/_extension-slimscroll.scss';
+@import '_extensions/_extension-waves.scss';
+
+/* #_plugins - Components imported in alphabetical order (remove plugins from directory if not needed)
+========================================================================== */ 
+/*@import '_plugins/_plugin-*.scss.scss';*/
+
+/* #ANIMATION - CSS animations and keyframes
+========================================================================== */ 
+@import '_modules/_keyframes-general.scss';
+@import '_modules/_keyframes-highlight.scss';
+@import '_modules/_keyframes-spinner.scss';
+@import '_modules/_keyframes-transition.scss';
+
+/* #MODS - Layout manipulation
+========================================================================== */ 
+@import '_modules/_mod-bg.scss';
+//poner el resto
+
+/* #COLORS - we place this here so it can override other colors as needed
+========================================================================== */ 
+@import '_modules/_colors.scss';
+
+/* #APP related modules (print, fullscreen, etc)
+========================================================================== */ 
+@import '_modules/_app-custom-scrollbar.scss';
+@import '_modules/_app-fullscreen.scss';
+@import '_modules/_app-print.scss';
+
+/* #OVERRIDE - You can override any of the variables through this file
+========================================================================== */ 
+@import '_modules/_overrides.scss';
+
+/* #DATATABLES
+=========================================================================== */
+@import 'datatables.styles.app.scss';
+
+/* #LOGIN
+=========================================================================== */
+@import '_pages/page-login.scss';

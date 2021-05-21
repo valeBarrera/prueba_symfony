@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    resetForm();
     $('#send-user').on('click',submitUser);
 });
 

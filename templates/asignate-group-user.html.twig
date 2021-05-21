@@ -1,0 +1,9 @@
+{% extends 'layouts/master.html.twig' %}
+
+{% block metatitle %}{{title}}{% endblock %}
+
+{% block main %}
+  <a class="btn bg-fusion-400" style="width:8%;" href="{{app.request.headers.get('referer')}}">Volver</a>
+  <h1>{{title}}</h1>
+  {{ form(form) }}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'layouts/master.html.twig' %}
+
+{% block metatitle %}{{title}}
+{% endblock %}
+
+{% block main %}
+  <h1>{{title}}</h1>
+  {# NEW #}
+  {% if 'new' in actions %}
+    <div class="row" >
+      <div class="col-3">
+        <a style="margin:10px;" class="btn btn-primary table-btn" href="{{ path('register_group') }}">Nuevo grupo</a>
+      </div>
+    </div>
+    
+  {% endif %}
+  <div id="groups">Loading...</div>
+{% endblock %}
+{% block javascripts %}
+  {{ parent() }}
+  <script src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>
+  <script>
+    $(function () {
+      console.log('{{datatable_settings(datatable)}}');
+      $('#groups').initDataTables({{ datatable_settings(datatable) }});
+    });
+  </script>
+{% endblock %}

@@ -1,0 +1,35 @@
+<aside class="page-sidebar">
+
+    <div class="page-logo">
+        <a  class="page-logo-link press-scale-down d-flex align-items-center" data-toggle="modal" data-target="#modal-shortcut">
+            <span class="page-logo-text mr-1">Gestor de Usuarios</span>
+        </a>
+    </div>
+    {% set currentPath = path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) %}
+    <nav id="js-primary-nav" class="primary-nav">
+        <ul id="js-nav-menu" class="nav-menu js-nav-built">
+            <li class="nav-item">
+                <a class="nav-link {{ ('/user-table' in currentPath) ? 'current-link' : '' }}"  href="/user-table">
+                    <i class="fas fa-archive"></i>
+                    <span class="nav-link-text">Usuarios</span>
+                    
+                </a>
+                <a class="nav-link {{ ('/group-table' in currentPath) ? 'current-link' : '' }}"  href="/group-table">
+                    <i class="fas fa-archive"></i>
+                    <span class="nav-link-text">Grupos</span>
+                </a>
+            </li>
+            
+            
+            {# <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-th-list"></i>Link
+                </a>
+            </li> #}
+            {# <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li> #}
+        </ul>
+    </nav>
+
+</aside>

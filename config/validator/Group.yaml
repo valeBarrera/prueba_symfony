@@ -1,0 +1,18 @@
+App\Entity\Group:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                min: 3
+                max: 50
+                minMessage: 'The name must be at least {{ limit }} characters long'
+                maxMessage: 'The name cannot be longer than {{ limit }} characters'
+                allowEmptyString: false
+        description:
+            - NotBlank: ~
+            - Length:
+                min: 3
+                max: 255
+                minMessage: 'The description must be at least {{ limit }} characters long'
+                maxMessage: 'The description cannot be longer than {{ limit }} characters'
+                allowEmptyString: false

@@ -314,7 +314,7 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/show/{id}", name="group_show", methods={"GET"})
+     * @Route("/group-show/{id}", name="group_show", methods={"GET"})
      */
     public function groupShow(Group $group): Response
     {
@@ -324,7 +324,7 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="group_edit", methods={"GET","POST"})
+     * @Route("/group/{id}", name="group_edit", methods={"GET","POST"})
      */
     public function groupEdit(Request $request, Group $group): Response
     {
